@@ -29,6 +29,6 @@ jobs:
         run: |
           az storage blob upload-batch \
             --account-name ytstorage2 \
-            --destination $web \
+            --destination '$web' \
             --source ./dist \
             --auth-mode login
