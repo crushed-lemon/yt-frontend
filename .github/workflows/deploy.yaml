@@ -1,0 +1,34 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses : actions/checkout@v3
+
+      - name: Set up npm
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Build the project
+        run: |
+          npm install
+          npm run build
+
+      - name: Log into azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to blob storage
+        run: |
+          az storage blob upload-batch \
+            --account-name ytstorage2 \
+            --destination yt-fe \
+            --source ./dist \
+            --auth-mode login
