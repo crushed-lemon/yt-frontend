@@ -19,7 +19,6 @@ jobs:
         run: |
           npm install
           npm run build
-          ls
 
       - name: Log into azure
         uses: azure/login@v1
@@ -30,6 +29,6 @@ jobs:
         run: |
           az storage blob upload-batch \
             --account-name ytstorage2 \
-            --destination yt-fe \
+            --destination $web \
             --source ./dist \
             --auth-mode login
