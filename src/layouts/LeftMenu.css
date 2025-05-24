@@ -1,0 +1,11 @@
+.left-menu {
+    @apply w-48 pt-20 h-full fixed top-0 left-0 z-40 border-r;
+}
+
+.left-menu-item {
+    @apply px-3 py-3 border-b border-gray-400 hover:font-bold;
+}
+
+.left-menu-item-container {
+    @apply flex flex-col justify-between h-full;
+}

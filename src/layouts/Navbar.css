@@ -1,21 +1,11 @@
-.header {
-  display: flex;
-  justify-content: space-between; /* pushes left and right sides apart */
-  align-items: center; /* vertical centering */
-  padding: 10px 20px;
-  border-bottom: 1px solid #ccc;
+.navbar {
+    @apply fixed top-0 left-0 w-full bg-red-600 text-white h-20 flex items-center justify-between px-8 shadow z-50;
 }
 
-.product-items,
-.user-items {
-  display: flex;
-  gap: 12px; /* space between inner elements */
+.navbar-button {
+    @apply px-4 py-2 rounded border-solid border-white border-2 hover:bg-white hover:text-black;
 }
 
-.product-items {
-  justify-content: flex-start;
-}
-
-.user-items {
-  justify-content: flex-end;
+.right-menu {
+    @apply flex space-x-4;
 }

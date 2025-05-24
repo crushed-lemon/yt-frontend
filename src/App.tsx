@@ -1,5 +1,5 @@
 import './App.css'
-import Navbar from './layouts/Navbar';
+import { AppLayout } from './layouts/AppLayout';
 import Home from './pages/Home';
 import NoPage from './pages/NoPage';
 import Video from './pages/Video';
@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter basename='/apps/youtube'>
       <Routes>
-        <Route path='/' element = {<Navbar></Navbar>}>
+        <Route path='/' element = {<AppLayout></AppLayout>}>
           <Route index element = {<Home></Home>} />
           <Route path='/home' element = {<Home></Home>} />
           <Route path='/videos/:videoId' element = {<Video></Video>} />
