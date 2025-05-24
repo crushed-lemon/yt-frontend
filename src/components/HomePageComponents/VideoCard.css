@@ -1,0 +1,23 @@
+.container {
+    @apply p-4 border;
+}
+
+.thumbnail-container {
+    @apply w-full flex justify-center;
+}
+
+.thumbnail {
+    @apply h-32 w-40;
+}
+
+.video-title {
+    @apply flex w-full justify-center;
+}
+
+.upload-info {
+    @apply flex flex-row justify-between space-x-4 text-xs pb-2 pt-2;
+}
+
+.view-info {
+    @apply flex flex-row justify-between space-x-4 text-xs;
+}
