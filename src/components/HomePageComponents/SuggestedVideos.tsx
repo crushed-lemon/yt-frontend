@@ -2,9 +2,6 @@ import * as React from 'react';
 import { VideoCard, type IVideoCardProps } from './VideoCard';
 import './SuggestedVideos.css';
 
-export interface ISuggestedVideosProps {
-}
-
 function hardCodedVideos() : IVideoCardProps[] {
   return [
     {
@@ -90,9 +87,9 @@ function hardCodedVideos() : IVideoCardProps[] {
   ];
 }
 
-export function SuggestedVideos (props: ISuggestedVideosProps) {
+export function SuggestedVideos () {
   
-  let [videos, setVideos] = React.useState(hardCodedVideos());
+  const [videos] = React.useState(hardCodedVideos());
 
   if (!videos || videos.length === 0) {
       return (

@@ -3,14 +3,14 @@ import { getRelativeTime } from '../../utils/date';
 import './VideoCard.css';
 
 export interface IVideoCardProps {
-    id : Number;
-    thumbnail : String;
-    title : String;
+    id : number;
+    thumbnail : string;
+    title : string;
     uploadTime : number;
-    channel : String;
-    views : Number;
-    likes : Number;
-    dislikes : Number;
+    channel : string;
+    views : number;
+    likes : number;
+    dislikes : number;
 }
 
 export function VideoCard (props: IVideoCardProps) {

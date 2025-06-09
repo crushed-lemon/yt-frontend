@@ -1,8 +1,8 @@
 import {getRelativeTime} from '../../utils/date.tsx';
 
 export interface ISingleCommentProps {
-    author : String,
-    commentText : String,
+    author : string,
+    commentText : string,
     timestamp : number,
 }
 

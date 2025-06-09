@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { SingleComment } from './SingleComment';
 
-export interface ICommentsProps {
-}
-
 function hardCodedComments() {
   return [
     {
@@ -19,9 +16,9 @@ function hardCodedComments() {
   ];
 }
 
-export function Comments (props: ICommentsProps) {
+export function Comments () {
 
-  const [comments, setComments] = useState(hardCodedComments());
+  const [comments] = useState(hardCodedComments());
 
   if (!comments || comments.length === 0) {
     return <div>No comments yet</div>
