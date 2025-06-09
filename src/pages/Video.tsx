@@ -13,7 +13,7 @@ const Video: React.FunctionComponent = () => {
     return (
         <div className='flex justify-between'>
             <div className='flex flex-col border w-full p-8'>
-                <VideoPlayer videoId = {Number(param.videoId)} />
+                <VideoPlayer videoId = {String(param.videoId)} />
                 <DescriptionSection videoId = {Number(param.videoId)} />
                 <AddCommentSection />
                 <Comments />
