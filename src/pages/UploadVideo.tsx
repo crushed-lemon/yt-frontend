@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PendingUploadComponent } from '../components/UploadVideoPageComponents/PendingUploadComponent';
 import axios from 'axios';
-import { useUser, type UserContextType } from '../providers/UserProvider';
+import { useUser } from '../providers/UserProvider';
 
 const BACKEND_ENDPOINT = import.meta.env.VITE_UPLOAD_VIDEO_SERVICE_ENDPOINT;
 
@@ -14,7 +14,7 @@ export interface PendingUpload {
 
 const UploadVideo = () => {
 
-    const user : UserContextType = useUser();
+    const user = useUser();
 
     const [pendingUploads, setPendingUploads] = useState([{"upload_id" : "abc", "video_name" : "video_abc", "percentage_uploaded" : 12, "timestamp" : 1234}]);
 

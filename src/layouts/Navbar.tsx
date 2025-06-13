@@ -21,7 +21,7 @@ const Navbar: React.FunctionComponent = () => {
                     !userContext.user &&
                     <>
                     <input className='color-black-200' type = "text" placeholder='username' value={enteredUsername} onChange={handleInputChange}></input>
-                    <button className='navbar-button' onClick={e => {userContext.login(enteredUsername)}}>Sign in</button>
+                    <button className='navbar-button' onClick={() => {userContext.login(enteredUsername)}}>Sign in</button>
                     </>
                 }
                 {
