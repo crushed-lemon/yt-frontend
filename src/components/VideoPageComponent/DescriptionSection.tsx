@@ -1,5 +1,5 @@
 export interface IDescriptionSectionProps {
-    videoId : number
+    videoId : string
 }
 
 export function DescriptionSection (props: IDescriptionSectionProps) {

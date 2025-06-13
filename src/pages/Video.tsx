@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import { VideoPlayer } from '../components/VideoPageComponent/VideoPlayer';
+import VideoPlayer from '../components/VideoPageComponent/VideoPlayer';
 import { RecommendedVideosSection } from '../components/VideoPageComponent/RecommendedVideosSection';
 import { AddCommentSection } from '../components/VideoPageComponent/AddCommentSection';
 import { Comments } from '../components/VideoPageComponent/Comments';
@@ -14,7 +14,7 @@ const Video: React.FunctionComponent = () => {
         <div className='flex justify-between'>
             <div className='flex flex-col border w-full p-8'>
                 <VideoPlayer videoId = {String(param.videoId)} />
-                <DescriptionSection videoId = {Number(param.videoId)} />
+                <DescriptionSection videoId = {String(param.videoId)} />
                 <AddCommentSection />
                 <Comments />
             </div>
