@@ -3,7 +3,7 @@
 }
 
 .left-menu-item {
-    @apply px-3 py-3 border-b border-gray-400 hover:font-bold;
+    @apply px-3 py-3 border-b border-gray-400 hover:font-bold justify-center;
 }
 
 .left-menu-item-container {
