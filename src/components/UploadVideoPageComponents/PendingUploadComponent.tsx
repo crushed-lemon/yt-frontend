@@ -1,4 +1,3 @@
-import * as React from 'react';
 import type { PendingUpload } from '../../pages/UploadVideo';
 import { Link } from 'react-router-dom';
 
