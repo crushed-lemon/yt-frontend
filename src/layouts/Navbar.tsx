@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './Navbar.css';
-import { useUser } from '../providers/UserProvider';
+import { useUser } from '../providers/UseUser';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FunctionComponent = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PendingUploadComponent } from '../components/UploadVideoPageComponents/PendingUploadComponent';
 import axios from 'axios';
-import { useUser } from '../providers/UserProvider';
+import { useUser } from '../providers/UseUser';
 
 const BACKEND_ENDPOINT = import.meta.env.VITE_UPLOAD_VIDEO_SERVICE_ENDPOINT;
 
@@ -48,7 +48,7 @@ const UploadVideo = () => {
 
             {
                 pendingUploads.map(pe => {
-                    return <PendingUploadComponent pendingUpload={pe}></PendingUploadComponent>
+                    return <PendingUploadComponent key={pe.upload_id} pendingUpload={pe}></PendingUploadComponent>
                 })
             }
                 <div>

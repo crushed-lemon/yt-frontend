@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import UserProvider from './providers/UserProvider'
+import { UserProvider } from './providers/UserProvider'
 
 import './index.css'
 import App from './App.tsx'
