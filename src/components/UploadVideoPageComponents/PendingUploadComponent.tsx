@@ -1,4 +1,4 @@
-import type { PendingUpload } from '../../pages/UploadVideo';
+import type { PendingUpload } from '../../pages/UploadVideoName';
 import { Link } from 'react-router-dom';
 
 export interface IPendingUploadComponentProps {

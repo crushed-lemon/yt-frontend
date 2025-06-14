@@ -14,7 +14,7 @@ export interface PendingUpload {
     timestamp : number
 }
 
-const UploadVideo = () => {
+const UploadVideoName = () => {
 
     const user = useUser();
 
@@ -83,4 +83,4 @@ const UploadVideo = () => {
     );
 }
 
-export default UploadVideo;
+export default UploadVideoName;
