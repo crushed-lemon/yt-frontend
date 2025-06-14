@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams, type NavigateFunction } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
 const BACKEND_ENDPOINT = import.meta.env.VITE_UPLOAD_VIDEO_SERVICE_ENDPOINT;
@@ -8,6 +8,7 @@ const BACKEND_ENDPOINT = import.meta.env.VITE_UPLOAD_VIDEO_SERVICE_ENDPOINT;
 export default function UploadVideoFile () {
 
     const param = useParams();
+    const navigate = useNavigate();
 
     function submitFile(event: React.FormEvent<HTMLFormElement>): void {
         event.preventDefault();
@@ -19,7 +20,7 @@ export default function UploadVideoFile () {
             toast.error("No file selected");
         }
 
-        uploadFileInChunks(param.uploadId! ,fileToUpload!);
+        uploadFileInChunks(param.uploadId! ,fileToUpload!, navigate);
     }
 
   return (
@@ -27,20 +28,28 @@ export default function UploadVideoFile () {
         <ToastContainer position='bottom-center' autoClose={5000} ></ToastContainer>
         <form onSubmit={submitFile}>
             <input type='file' id='fileToUpload' name='fileToUpload'></input>
-            <button className='my-4 text-white bg-blue-700 hover:bg-blue-800'> Submit </button>
+            <button className='my-4 text-white bg-blue-700 hover:bg-blue-800 p-4 rounded-full'> Upload! </button>
         </form>
     </div>
   );
 }
 
-const uploadFileInChunks = async(uploadId : string, fileToUpload : File) => {
+const uploadFileInChunks = async(uploadId : string, fileToUpload : File, navigate : NavigateFunction) => {
 
     const [file_size, chunk_size, chunks] = getChunkDetails(fileToUpload);
 
     uploadFileDetails(uploadId, file_size, chunk_size, chunks)
     .then(response => {
         if (response.data.status === "OK") {
-            uploadChunks(uploadId, fileToUpload, file_size, chunk_size, chunks);
+            uploadChunks(uploadId, fileToUpload, file_size, chunk_size, chunks)
+            .then(() => {
+                navigate("metadata");
+                toast.success("Video file uploaded successfully!");
+            })
+            .catch(e => {
+                console.log(e);
+                toast.error("Video could not be uploaded!");
+            })
         } else {
             console.log(response);
             toast.error("Video could not be uploaded, some server side error happened");
